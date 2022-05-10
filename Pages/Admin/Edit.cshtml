@@ -1,0 +1,38 @@
+﻿@page "{id:int}"
+@model Sunburst.Pages.Admin.EditMenuModel
+@{
+    ViewData["Title"] = "Edit Menu";
+    Layout = "~/Pages/_Layout.cshtml";
+}
+
+<form method="post" enctype="multipart/form-data">
+    <div>
+        <label> Menu </label>
+        <div><input asp-for="Menu.Name" /></div>
+
+        <label> Price </label>
+        <div><input asp-for="Menu.Price" /></div>
+
+        <label> Description </label>
+        <div><input asp-for="Menu.Description" /></div>
+
+        <label> Image Description </label>
+        <div><input asp-for="Menu.ImageDescription" /></div>
+
+        <!-- Hidden Field -->
+        <div><input asp-for="Menu.ID" type="hidden" /></div>
+        <div><input asp-for="Menu.Active" type="hidden" /></div>
+        <div><input asp-for="Menu.ImageData" type="hidden" /></div>
+
+        <div>
+            Upload Image: <br />
+            <input type="file" id="file1"
+                   name="file1"
+                   multiple="multiple" />
+        </div>
+
+    </div>
+    <div>
+        <button type="submit" asp-page-handler="Save"> Save </button>
+    </div>
+</form>

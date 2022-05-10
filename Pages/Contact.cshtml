@@ -1,0 +1,50 @@
+﻿@page
+@model Sunburst.Pages.ContactModel
+@{
+    ViewData["Title"] = "Home";
+    Layout = "~/Pages/_Layout.cshtml";
+}
+
+<!-- Code Link to CSS File -->
+<link href="~/css/layout.css" rel="stylesheet" />
+
+
+<!-- Contact Section -->
+
+<section class="contact" id="contact">
+
+    <div class="row">
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d702.7407895168021!2d114.92829356977866!3d4.888974711313793!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32228ac9f830ced7%3A0xfd8432f2b3c34d13!2sVWQH%2BHFP%2C%20Bandar%20Seri%20Begawan%20BA1712%2C%20Brunei!5e0!3m2!1sen!2sus!4v1652115431293!5m2!1sen!2sus" width="700" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
+       
+        <!-- Google Map JS -->
+            <div class="static" id="googlemap">
+                <!-- JS Disabled -->
+                <noscript>
+                    <img src="~/img/map.png" alt="none-static-map" />
+                </noscript>
+              </div>
+
+        <form>
+
+            <h3> Contact us for more! </h3>
+
+            <div class="inputBox">
+                <span class="fas fa-user"></span>
+                <input type="text" placeholder="Name">
+            </div>
+
+            <div class="inputBox">
+                <span class="fas fa-envelope"></span>
+                <input type="email" placeholder="Email">
+            </div>
+
+            <a class="button" href="mailto:info@suncoffee.bn"> Contact </a> 
+
+        </form>
+    </div>
+</section>
+
+<!-- End of Contact Section -->
+
+<script src="~/js/dark.js"></script>

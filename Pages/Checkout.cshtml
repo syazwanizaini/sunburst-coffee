@@ -1,0 +1,59 @@
+﻿@page
+@model Sunburst.Pages.CheckoutModel
+@{
+    ViewData["Title"] = "Checkout";
+    Layout = "~/Pages/_Layout.cshtml";
+}
+@using Sunburst.Data
+@using Microsoft.Extensions.Options
+@inject IOptions<StripeSettings> Stripe
+<!-- Code Link to CSS File -->
+<link href="~/css/layout.css" rel="stylesheet" />
+
+<h1> Checkout </h1>
+<form method="post">
+    <table class="table">
+        <thead>
+            <tr>
+                <th> Name </th>
+                <th> Price </th>
+                <th> Quantity </th>
+                <th> Subtotal </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model.Items)
+            {
+                var subtotal = item.Price * item.Quantity;
+                <tr>
+                    <td> @item.Name </td>
+                    <td> @item.Price.ToString("C") </td>
+                    <td>
+                        <button type="submit" asp-page-handler="Additional" asp-route-itemID="@item.ID"> + </button>
+                        <button type="submit" asp-page-handler="Subtract" asp-route-itemID="@item.ID"> - </button>
+
+                    </td>
+                    <td> @item.Quantity </td>
+                    <td> @subtotal.ToString("C")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>
+
+<form asp-page-handler="Charge" asp-route-amount="@Model.AmountPayable" method="POST">
+    <script src="//checkout.stripe.com/v2/checkout.js"
+            class="stripe-button"
+            data-key="@Stripe.Value.PublishableKey"
+            data-locale="auto"
+            data-description="CO5227 SunCoffee Charge"
+            data-amount="@Model.AmountPayable"
+            data-currency="SGD">
+    </script>
+</form>
+<div> Total = @Model.Total.ToString("C")</div>
+
+<script src="~/js/dark.js"></script>
+
+

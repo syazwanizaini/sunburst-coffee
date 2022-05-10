@@ -1,0 +1,31 @@
+﻿@page
+@model Sunburst.Pages.Account.LoginModel
+@{
+    ViewData["Title"] = "Home";
+    Layout = "~/Pages/_Layout.cshtml";
+}
+
+<h2> Login </h2>
+
+<a asp-page="/Account/Register"> Register </a>
+
+<form method="post">
+    <h4> Use a local account to log in.</h4>
+    <hr />
+    <div asp-validation-summary="All"></div>
+    <div>
+        <label asp-for="Input.Email"></label>
+        <input asp-for="Input.Email" />
+        <span asp-validation-for="Input.Email"></span>
+    </div>
+
+    <div>
+        <label asp-for="Input.Password"></label>
+        <input asp-for="Input.Password" />
+        <span asp-validation-for="Input.Password"></span>
+    </div>
+
+    <div>
+        <button type="submit"> Log In </button>
+    </div>
+</form>

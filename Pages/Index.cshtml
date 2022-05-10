@@ -1,0 +1,50 @@
+﻿@page
+@model Sunburst.Pages.IndexModel
+@{
+    ViewData["Title"] = "Home";
+    Layout = "~/Pages/_Layout.cshtml";
+}
+
+<!-- Code Link to CSS File -->
+<link href="~/css/layout.css" rel="stylesheet" />
+
+<div class="hello">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <h2> Hello, @UserManager.GetUserName(User)! </h2>
+
+        if (User.IsInRole("Admin"))
+        {
+            <h3> Only you can change Sunburst's vibe. </h3>
+        }
+    }
+</div>
+
+<!-- Home Content -->
+<div class="home">
+    <h2> Stay Sunny. Bursting Flavours. </h2>
+    <p>
+        A local Bruneian coffee place and roasters located at Rimba, <br />
+        we serve coffee and tea to suit your sunny days. <br />
+        Even on the gloomiest days.
+    </p>
+
+    <!-- Code adapted from W3School -->
+    <!-- Slideshow -->
+
+    <div class="w3-content w3-display-container">
+        <img class="slide" src="~/img/ss-1.jpg" alt="Image 1">
+        <img class="slide" src="~/img/ss-2.jpg" alt="Image 2">
+        <img class="slide" src="~/img/ss-3.jpg" alt="Image 3">
+        <br />
+        <button class="left-button" onclick="plusDivs(-1)">&#10094;</button>
+        <button class="right-button" onclick="plusDivs(1)">&#10095;</button>
+    </div>
+
+    @*<button onclick="darkMode()"> Midnight Mode </button>*@
+
+    <!-- End of adapted code -->
+    <script src="~/js/slide.js"></script>
+    <script src="~/js/dark.js"></script>
+
+</div>

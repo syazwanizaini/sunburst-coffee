@@ -1,0 +1,23 @@
+﻿@page
+@model Sunburst.Pages.Admin.CreateModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Pages/_Layout.cshtml";
+}
+
+<h1> Create New Menu </h1>
+
+<p> Enter Details of the New Menu: </p>
+<form method="post" enctype="multipart/form-data">
+    <div> Name: <input asp-for="Menu.Name" placeholder="New Menu Name" /></div>
+    <div> Price: <input asp-for="Menu.Price" placeholder="New Menu Price" /></div>
+    <div> Description: <input asp-for="Menu.Description" placeholder="New Menu Description" /></div>
+    <div> Image Description <input asp-for="Menu.ImageDescription"/></div>
+    <div>
+        Upload Image: <br />
+        <input type="file" id="file1"
+               name="file1"
+               multiple="multiple"/>
+    </div>
+    <input type="submit" />
+</form>

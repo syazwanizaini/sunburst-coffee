@@ -1,0 +1,49 @@
+﻿@page
+@model Sunburst.Admin.MenuModel
+@{
+    ViewData["Title"] = "Menu";
+    Layout = "~/Pages/_Layout.cshtml";
+}
+
+<h1> Menu </h1>
+<!-- Link to CSS -->
+<link href="~/css/StyleSheet.css" rel="stylesheet" />
+
+<!-- Link to Create Menu -->
+<a asp-page="/Admin/Create"> Create New Menu </a>
+
+<form method="post">
+
+    <section class="menu-page" id="menu-page">
+
+        <table class="table" id="menu">
+            <thead>
+                <tr>
+                    <th> Name </th>
+                    <th> Price </th>
+                    <th> Description </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var sbcf in Model.SunCoffee)
+                {
+                    <tr>
+                        <td> @sbcf.Name </td>
+                        <td> @sbcf.Description </td>
+                        <td> @sbcf.Price.ToString("C") </td>
+                        <td>
+                            <a asp-page="/Admin/Edit" asp-route-id="@sbcf.ID"> Edit Menu </a>
+                            <button type="submit" asp-page-handler="Delete" asp-route-menuID="@sbcf.ID"> Delete </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
+
+    <div class="search-container"> Search: <input asp-for="Search" /></div>
+    <button type="submit" asp-page-handler="Search"> Search </button>
+</form>
+
+

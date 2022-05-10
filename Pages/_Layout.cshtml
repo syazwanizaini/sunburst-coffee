@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/layout.css" rel="stylesheet" />
+</head>
+
+<body>
+
+
+    <!-- Navigation Bar -->
+    <nav>
+        <!-- Logo -->
+        <div class="logo">
+            <img src="~/img/sun-logo.png" alt="logo"/>
+        </div>
+
+        <div class="options">
+            <img src="~/img/moon.png" onclick="darkMode()" id="moon" class="dark"  alt="moon"/>
+            <a asp-page="/Index"> Home </a>
+            <a asp-page="/Menu"> Menu </a>
+            <a asp-page="/Contact"> Contact </a>
+
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <a asp-page="/Checkout"> Checkout </a>
+
+                <!-- Form for Controller Action -->
+
+                <form class="logout-button" asp-page="/Account/Logout" method="post">
+                    <button class="logout" type="submit"> Logout </button>
+                </form>
+
+                <!-- Admin Access -->
+                if (User.IsInRole("Admin"))
+                {
+                    <a asp-page="/Admin/AdminMenu"> Edit Menu </a>
+                }
+
+            }
+            else
+            {
+                <a asp-page="/Account/Login"> Log In </a>
+            }
+        </div>
+
+    </nav>
+
+
+    <div>
+        @RenderBody()
+    </div>
+
+
+    <br />
+    <br />
+
+    <!-- Start of Footer -->
+    <footer>
+
+        <div class="share">
+            <a href="http://validator.w3.org/check?uri=referer"> Validate HTML </a>
+            <a href="http://jigsaw.w3.org/css-validator/check/referer"> Validate CSS </a>
+            @if (User.IsInRole("Admin"))
+            {
+                <a asp-page="/Admin/AdminMenu"> Admin </a>
+            }
+        </div>
+    </footer>
+    <!-- End of Footer --> 
+
+</body>
+</html>

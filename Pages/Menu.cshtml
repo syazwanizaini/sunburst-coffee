@@ -1,0 +1,70 @@
+﻿@page
+@model Sunburst.Pages.MenuModel
+@{
+    ViewData["Title"] = "Menu";
+    Layout = "~/Pages/_Layout.cshtml";
+}
+
+<!-- Link to CSS -->
+<link href="~/css/layout.css" rel="stylesheet" />
+
+<h1> Menu </h1>
+
+<form method="post">
+    <section class="menu-page" id="menu-page">
+
+        <table class="table" id="menu">
+            <thead>
+                <tr>
+                    <th> Name </th>
+                    <th> Description </th>
+                    <th> Price </th>
+                    <th> Visual </th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @foreach (var Menu in Model.SunCoffee)
+                {
+                    <tr>
+                        <td> @Menu.Name </td>
+                        <td> @Menu.Description </td>
+                        <td> @Menu.Price.ToString("C") </td>
+
+                        @{
+                            try
+                            {
+                                if (Convert.ToBase64String(Menu.ImageData) != null)
+                                {
+                                    <td>
+                                        <img class="visual-image" src="@string.Format("data:image/jpg;base64,{0}",
+                                        Convert.ToBase64String(Menu.ImageData))" alt="@Menu.ImageDescription" />
+                                    </td>
+                                }
+                            }
+                            catch
+                            {
+                                <td>
+                                    <img src="/img/empty.png" alt="No Image Provided" />
+                                </td>
+                            }
+                        }
+                        <td>
+                            <button type="submit" asp-page-handler="Buy"
+                                    asp-route-itemID="@Menu.ID">
+                                Buy
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
+
+    <div class="search-container"> Search: <input asp-for="Search" /></div>
+    <br />
+    <button type="submit" asp-page-handler="Search"> Search </button>
+</form>
+
+<script src="~/js/dark.js"></script>

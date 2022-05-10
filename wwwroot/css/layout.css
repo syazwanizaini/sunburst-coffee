@@ -1,0 +1,185 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+}
+
+body {
+    padding: 0px;
+    margin: 60px;
+    background-color: ghostwhite;
+    color: black;
+}
+
+/* Dark Mode */
+.dark-mode {
+    background-color: gray;
+    color: white;
+}
+
+/* Changing Font Headers */
+hello {
+    font-size: 30px;
+}
+
+    hello h3 {
+        font-size: 15px;
+        cursor: default;
+    }
+
+/* Styles for Fonts */
+nav {
+    height: 110px;
+    width: 100%;
+}
+
+
+/* Adjusting Navigation Bar */
+.options {
+    margin-top: 35px;
+    float: right;
+    width: 1200px;
+}
+
+    .options a {
+        text-align: left;
+        text-decoration: none;
+        font-size: 20px;
+        font-family: 'Poppins', sans-serif;
+        color: black;
+        padding: 50px;
+        transition: all 0.3s ease 0s;
+    }
+
+        .options a:hover {
+            color: darkblue;
+        }
+
+.logout-button {
+    float: right;
+    margin-top: -10.5px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th {
+    border: solid 2px gray;
+    text-align: left;
+}
+
+th, td {
+    padding: 10px;
+}
+
+
+.logout {
+    margin-top: 0px;
+    font-size: 20px;
+    border: none;
+    background-color: transparent;
+    padding: 10px;
+}
+
+/*Image from Index Page*/
+.coffeeimage{
+    width: 40%;
+    border-radius: 10px;
+}
+
+
+/* Resizing the Logo */
+.logo {
+    width: 300px;
+}
+
+    .logo img {
+        float: left;
+        width: 120px;
+        height: 70px;
+    }
+
+.visual-image {
+    padding: 15px;
+    border-radius: 10px;
+    height: 300px;
+    width: 300px;
+}
+
+
+/* Responsive Function */
+@media screen and (max-width: 1500px) {
+    .options a {
+        font-size: 15px;
+        width: 200px;
+    }
+}
+
+
+/* Contact Page */
+
+.contact .row {
+    display: flex;
+    background: var(--black);
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+    .contact .row .map {
+        flex: 1 1 45rem;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .contact .row form {
+        flex: 1 1 45rem;
+        padding: 5rem 2rem;
+        text-align: center;
+    }
+
+        .contact .row form h3 {
+            text-transform: uppercase;
+            font-size: 3.5rem;
+            color: black;
+        }
+
+        .contact .row form .inputBox {
+            display: flex;
+            align-items: center;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            background: var(--bg);
+            border: var(--border);
+        }
+
+            .contact .row form .inputBox span {
+                color: black;
+                font-size: 2rem;
+                padding-left: 2rem;
+            }
+
+            .contact .row form .inputBox input {
+                width: 100%;
+                padding: 2rem;
+                font-size: 1.7rem;
+                color: black;
+                text-transform: none;
+                background: none
+            }
+
+    /* Moon Icon */
+    #moon {
+    }
+        .dark {
+            width: 2%;
+            float: right;
+        }
+
+/* Resize Image Slideshow */
+.slide {
+    border-radius: 20px;
+    width: 40%;
+}
